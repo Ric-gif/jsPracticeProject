@@ -8,9 +8,8 @@ function getRandomInt(min, max) {
 
 
 const getSleepHours = day => {
-    day = day.toLowerCase();
-
-    switch (day) {
+    
+    switch (day.toLowerCase()) {
         case 'monday':
             return getRandomInt(4, 16);
             break;
