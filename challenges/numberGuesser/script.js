@@ -18,6 +18,9 @@ const generateTarget = _ => {
 
 // Compares both user and computer and determines which is closer to the target using Math.abs()
 const compareGuesses = (user, computer, target) => {
+    if(user > 10 || user < 0 || !user){
+        return 1;
+    }
     if (Math.abs(user - target) > Math.abs(computer - target)) {
         return false;
     }

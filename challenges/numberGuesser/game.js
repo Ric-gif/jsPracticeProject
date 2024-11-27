@@ -14,6 +14,7 @@ const guessButton = document.getElementById('guess');
 const nextRoundButton = document.getElementById('next-round')
 
 guessButton.addEventListener('click', () => {
+  
   // Generate the target value
   target = generateTarget();
   // Retrieve the player's guess
@@ -21,12 +22,19 @@ guessButton.addEventListener('click', () => {
   // Make a random 'computer guess'
   const computerGuess = Math.floor(Math.random() * 10);
 
+  const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target)
+  
+  // Checks is the User is between required Range in this case (0-10)
+  if (humanIsWinner === 1) {
+    alert('Your guess is out of range must be between (0-10)');
+    return;
+  }
+
   // Display the computer guess and the target
   computerGuessDisplay.innerText = computerGuess;
   targetNumberDisplay.innerText = target;
   
   // Determine if the human or computer wins:
-  const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target)
   const winner = humanIsWinner ? 'human' : 'computer'
 
   // Update the correct score:
