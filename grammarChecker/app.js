@@ -11,19 +11,22 @@ let count = 0;
 
 // Checks each word and removes unnecessaryWord
 storyWords.forEach( word => {
+
     count++;
+
     storyWords = storyWords.filter( word => {
-        if (word !== unnecessaryWord) {
-            return word;
-        }
+
+        return word !== unnecessaryWord;
+
     });
+
 });
 
 // Searches for badWord and returns its index
 let badWordIndex = storyWords.findIndex(word => {
-    if(word === badWord){
-        return word;
-    }
+
+    return word === badWord;
+
 });
 
 // console.log(badWordIndex);
@@ -34,22 +37,16 @@ storyWords[badWordIndex] = 'really';
 // Goes through storyWords array and replaces misspelledWord
 // If word.length is greater than 10 replaces it.
 storyWords = storyWords.map( word => {
-    if (word === misspelledWord) {
-        return 'beautiful';
-    }
 
-    if (word.length > 10) {
-        return 'stunning';
-    }
-    return word;
+    return word === misspelledWord ? 'beautiful' : word.length > 10 ? 'stunning' : word;
+
 });
 
 // Goes through every word in storyWords and looks for words longer than 10 symbols
 let lengthCheck = storyWords.every( word => {
-    if(word.length <= 10){
-        return true;
-    }
-    return false;
+
+    return word.length <= 10 ? true : false;
+
 });
 
 console.log(lengthCheck);
