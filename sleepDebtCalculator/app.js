@@ -6,30 +6,32 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }
 
+const rand = getRandomInt(4, 16);
+
 
 const getSleepHours = day => {
-    
+
     switch (day.toLowerCase()) {
         case 'monday':
-            return getRandomInt(4, 16);
+            return rand;
             break;
         case 'tuesday':
-            return getRandomInt(4, 16);
+            return rand;
             break;
         case 'wednesday':
-            return getRandomInt(4, 16);
+            return rand;
             break;
         case 'thuesday':
-            return getRandomInt(4, 16);
+            return rand;
             break;
         case 'friday':
-            return getRandomInt(4, 16);
+            return rand;
             break;
         case 'saturday':
-            return getRandomInt(4, 16);
+            return rand;
             break;
         case 'sunday':
-            return getRandomInt(4, 16);
+            return rand;
             break;
         default:
             console.log('Wrong input!!!');
@@ -55,13 +57,13 @@ const getActualSleepHours = _ => {
     // sumOfSleepHours += getSleepHours('Sunday');
 
     // without calling getSleepHours() function
-    sumOfSleepHours += getRandomInt(3, 16);
-    sumOfSleepHours += getRandomInt(3, 16);
-    sumOfSleepHours += getRandomInt(3, 16);
-    sumOfSleepHours += getRandomInt(3, 16);
-    sumOfSleepHours += getRandomInt(3, 16);
-    sumOfSleepHours += getRandomInt(3, 16);
-    sumOfSleepHours += getRandomInt(3, 16);
+    sumOfSleepHours += rand;
+    sumOfSleepHours += rand;
+    sumOfSleepHours += rand;
+    sumOfSleepHours += rand;
+    sumOfSleepHours += rand;
+    sumOfSleepHours += rand;
+    sumOfSleepHours += rand;
 
     return sumOfSleepHours;
 }
