@@ -24,10 +24,59 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
+const validateCred = (arr) => {
+    let sum = 0;
+    let double = false;
+    
+    for (let i = arr.length - 1; i >= 0; i--) {
+        let digit = arr[i];
+        
+        if (double) {
+            digit *= 2;
+            if (digit > 9) digit -= 9;
+        }
+        
+        sum += digit;
+        double = !double;
+    }
+    
+    return sum % 10 === 0;
+};
 
-// const validateCred = array => {
+// Function to find invalid credit card numbers from a batch
+const findInvalidCards = (cards) => {
+    return cards.filter(card => !validateCred(card));
+};
 
-// }
+// Function to identify credit card companies that issued invalid card numbers
+const idInvalidCardCompanies = (invalidCards) => {
+    let companies = new Set();
 
+    invalidCards.forEach(element => {
+        switch (element[0]) {
+            case 3:
+                companies.add('Amex (American Express)');
+                break;
+            case 4:
+                companies.add('Visa');
+                break;
+            case 5:
+                companies.add('Mastercard');
+                break;
+            case 6:
+                companies.add('Discover');
+                break;
+            default:
+                console.log('Company not found for card starting with digit:', element[0]);
+        }
+    });
 
+    return Array.from(companies);
+};
 
+// Example usage
+const invalidCards = findInvalidCards(batch);
+
+console.log(idInvalidCardCompanies(invalidCards));
+
+console.log(invalidCards);
